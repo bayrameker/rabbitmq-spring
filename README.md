@@ -16,7 +16,7 @@ This project demonstrates an advanced implementation of RabbitMQ for asynchronou
 
 ### Prerequisites
 - Java 17 or higher
-- Maven 3.6 or higher
+- Maven 3.9.5 or higher
 - RabbitMQ Server
 - Optional: Docker for containerization
 
