@@ -4,6 +4,7 @@ import com.backend.server.model.Product;
 import com.backend.server.repository.ProductRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,13 @@ public class ProductService {
     private RabbitTemplate rabbitTemplate;
 
     public void createProductAsync(Product product) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        String productJson = null;
+
         try {
-            productJson = objectMapper.writeValueAsString(product);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
+            rabbitTemplate.convertAndSend("crudQueue", product);
+        } catch (AmqpException e) {
+            // Loglama yapabilir veya özel bir işlem gerçekleştirebilirsiniz.
+            throw e; // Hata, GlobalExceptionHandler tarafından ele alınacaktır.
         }
-        rabbitTemplate.convertAndSend("crudQueue", productJson);
     }
 
     @RabbitListener(queues = "crudQueue")
