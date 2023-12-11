@@ -69,7 +69,3 @@ This project is licensed under the MIT License - see the `LICENSE.md` file for d
 - **Developer**: Bayram EKER
 - **Email**: eker600@gmail.com
 
-
----
-
-Bu README örneği, projenizin temel yapısını ve kullanımını açıklamakta ve gelecekteki geliştirmeler için yol göstermektedir. İçeriğini, projenizin özgün özelliklerine ve ihtiyaçlarına göre özelleştirebilirsiniz.
