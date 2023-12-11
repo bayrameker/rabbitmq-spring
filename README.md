@@ -27,7 +27,7 @@ This project demonstrates an advanced implementation of RabbitMQ for asynchronou
    ```
 2. Navigate to the project directory:
    ```bash
-   cd advanced-rabbitmq-spring
+   cd rabbitmq-spring
    ```
 3. Build the project with Maven:
    ```bash
